@@ -1,6 +1,7 @@
 package com.rushi.e_commerce.User.UserEntity;
 
 import com.rushi.e_commerce.Common.AuditableEntity;
+import com.rushi.e_commerce.cart.CartEntity.CartEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -36,5 +37,4 @@ public class UserEntity extends AuditableEntity {
 
     @Column(nullable = false)
     private boolean isDeleted = false;
-
 }

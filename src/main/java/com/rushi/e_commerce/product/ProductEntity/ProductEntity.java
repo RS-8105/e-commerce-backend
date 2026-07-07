@@ -1,13 +1,13 @@
 package com.rushi.e_commerce.product.ProductEntity;
 
 import com.rushi.e_commerce.Common.AuditableEntity;
+import com.rushi.e_commerce.category.CategoryEntity.CategoryEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.awt.*;
 import java.math.BigDecimal;
 
 @Entity
@@ -43,4 +43,8 @@ public class ProductEntity extends AuditableEntity {
 
     @Column(nullable = false)
     private boolean isDeleted = false;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
+    private CategoryEntity category;
 }
