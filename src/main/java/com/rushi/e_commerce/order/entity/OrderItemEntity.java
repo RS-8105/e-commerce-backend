@@ -3,7 +3,6 @@ package com.rushi.e_commerce.order.entity;
 import com.rushi.e_commerce.Common.AuditableEntity;
 import com.rushi.e_commerce.product.ProductEntity.ProductEntity;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Null;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,5 +30,13 @@ public class OrderItemEntity extends AuditableEntity {
 
     @Column(nullable = false)
     private Integer quantity;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id", nullable = false)
+    private OrderEntity order;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id", nullable = false)
+    private ProductEntity product;
 }
 

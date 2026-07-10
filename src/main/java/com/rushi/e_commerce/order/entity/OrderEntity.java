@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
@@ -34,4 +36,12 @@ public class OrderEntity extends AuditableEntity {
 
     @Column(nullable = false)
     private boolean isDeleted = false;
+
+    @OneToMany(
+            mappedBy = "order",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    private List<OrderItemEntity> orderItems = new ArrayList<>();
+
 }
