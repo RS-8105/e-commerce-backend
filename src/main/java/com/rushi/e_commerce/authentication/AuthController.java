@@ -1,5 +1,7 @@
 package com.rushi.e_commerce.authentication;
 
+import com.rushi.e_commerce.authentication.dto.login.LoginRequest;
+import com.rushi.e_commerce.authentication.dto.login.LoginResponse;
 import com.rushi.e_commerce.authentication.dto.register.RegisterRequest;
 import com.rushi.e_commerce.authentication.dto.register.RegisterResponse;
 import jakarta.validation.Valid;
@@ -19,5 +21,10 @@ public class AuthController {
     @PostMapping("/register")
     public RegisterResponse register(@Valid @RequestBody RegisterRequest request){
         return service.register(request);
+    }
+
+    @PostMapping("/login")
+    public LoginResponse login(@Valid @RequestBody LoginRequest request){
+        return service.login(request);
     }
 }

@@ -11,7 +11,8 @@ public record RegisterRequest(@NotBlank @Size(min = 2, max = 40)
                               String email,
                               @NotBlank @Size(min = 8, max = 12)
                               String password,
-                              @Pattern(regexp = "^\\+[1-9]\\d{1,14}$",message = "Phone Number should be in International format")
+                              @Pattern(regexp = "^\\+[1-9]\\d{1,14}$",
+                                      message = "Phone Number should be in International format")
                               String phoneNumber
                               ) {
 }
